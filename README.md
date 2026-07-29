@@ -2,13 +2,13 @@
 
 **Clean, balanced books from a pile of bank and credit-card statements, imported into QuickBooks right the first time.**
 
-[Open the actual app](https://tieoutapp.com)
+[Open TieOut](https://tieoutapp.com)
 
 TieOut is a catch-up bookkeeping product. Drop in every account for a client's messy period and TieOut converts the statements, matches transfers, removes feed-seam duplicates, collapses double-counted processor payouts, proves every month ties out, and exports an import-safe cleanup package.
 
 > Others convert statements. TieOut turns a client's whole backlog into books that balance.
 
-This repository is the public product and technical specification site for TieOut. The production app lives at `https://tieoutapp.com`; the private implementation repository remains separate.
+This repository hosts TieOut's public product and technical specification material. The product itself lives at `https://tieoutapp.com`.
 
 ## Product Description
 
@@ -19,7 +19,7 @@ Catch-up bookkeeping means downloading months of statements across a bunch of ac
 - Stripe, PayPal, or Square payouts can be counted twice;
 - one missing month throws off every balance after it.
 
-TieOut handles that cleanup layer and hands back a clean, source-backed package ready for QuickBooks.
+TieOut handles that cleanup layer and hands back a clean, source-backed package ready for QuickBooks. The product is built around reviewable proposals, coverage gates, source proof, books checks, and export packages rather than one-off spreadsheet conversion.
 
 ## What TieOut Does
 
@@ -29,6 +29,18 @@ TieOut handles that cleanup layer and hands back a clean, source-backed package 
 4. Catches double-counted sales from payment processors.
 5. Checks period coverage and carry-forward continuity.
 6. Exports a QuickBooks import CSV, Excel workbooks, review CSV, PDF report, source index, and metadata.
+
+## Product Controls
+
+TieOut refuses to export while the cleanup still has unresolved accounting risk:
+
+- coverage gaps or duplicate statement periods;
+- unconfirmed transfer, duplicate, seam, or processor payout proposals;
+- rows that need source-proof review or repair;
+- already-booked rows that would double-count on import;
+- mismatches between statement activity and existing books.
+
+The final package is designed to be explainable: import rows, account workbooks, review exceptions, source references, metadata, and report output all describe what changed and why.
 
 ## Product Surface
 
@@ -81,12 +93,6 @@ Core principles:
 - [Ledger scorecard](results/LEDGER_SCORECARD.md)
 - [Real-substrate ledger scorecard](results/LEDGER_REAL_SUBSTRATE_SCORECARD.md)
 
-## GitHub Pages
+## App
 
-This repository is designed to serve its root `index.html` through GitHub Pages. The page links all app actions to:
-
-```text
-https://tieoutapp.com
-```
-
-Do not use this repository as the production application repo. The implementation stays private.
+Use the running product at [tieoutapp.com](https://tieoutapp.com).
