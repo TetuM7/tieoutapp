@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="TieOut turns messy bank and credit-card statement backlogs into source-backed, QuickBooks-ready cleanup packages."
+    />
+    <title>TieOut Technical Product Overview</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap hero-inner">
+        <nav class="nav" aria-label="Primary">
+          <a class="brand" href="./" aria-label="TieOut home">
+            <span class="brand-mark">T</span>
+            <span>TieOut Technical Product Overview</span>
+          </a>
+          <div class="nav-links">
+            <a href="#workflow">Workflow</a>
+            <a href="#specs">Specs</a>
+            <a href="#docs">Docs</a>
+            <a href="https://tieoutapp.com">Open app</a>
+          </div>
+        </nav>
+
+        <div class="hero-copy">
+          <p class="eyebrow">Technical product overview</p>
+          <h1>TieOut</h1>
+          <p class="hero-lede">
+            A TypeScript reconciliation system that turns messy multi-account statement backlogs into source-backed,
+            QuickBooks-ready ledgers.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="https://tieoutapp.com">Open TieOut</a>
+            <a class="button secondary" href="#specs">Read the engine spec</a>
+          </div>
+        </div>
+
+        <div class="metric-grid" aria-label="TieOut engineering metrics">
+          <div class="metric">
+            <strong>281+</strong>
+            <span>statement corpus</span>
+            <p>6 public-bank formats scored at summary level</p>
+          </div>
+          <div class="metric">
+            <strong>38,346</strong>
+            <span>ledger distractors</span>
+            <p>synthetic eval rows used for regression pressure</p>
+          </div>
+          <div class="metric">
+            <strong>0</strong>
+            <span>false reconciled</span>
+            <p>hard gate for extraction tie-outs</p>
+          </div>
+          <div class="metric">
+            <strong>0</strong>
+            <span>false cross-account</span>
+            <p>hard gate for transfer and payout matching</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="wrap split">
+          <div>
+            <div class="section-head">
+              <p class="eyebrow">Product system</p>
+              <h2>A real reconciliation product with the engine in view.</h2>
+              <p>
+                TieOut presents a working product workflow backed by typed contracts, deterministic matching passes,
+                export gates, and scorecards that make the accounting risk measurable.
+              </p>
+            </div>
+            <div class="feature-cards">
+              <article class="feature-card">
+                <h3>Product wedge</h3>
+                <p>
+                  Other tools convert one statement into rows. TieOut owns the harder layer: cross-account cleanup
+                  before data reaches QuickBooks.
+                </p>
+              </article>
+              <article class="feature-card warn">
+                <h3>Engineering bar</h3>
+                <p>
+                  The core rule is conservative: no quiet export when arithmetic, provenance, or human confirmation is
+                  incomplete.
+                </p>
+              </article>
+            </div>
+          </div>
+          <img
+            class="shadow-img"
+            src="assets/screenshots/04-overview-workflow.png"
+            alt="TieOut cleanup workspace overview showing real product navigation, status, notes, and activity."
+          />
+        </div>
+      </section>
+
+      <section id="workflow" class="section alt">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">Product workflow</p>
+            <h2>The workflow is simple; the reconciliation logic is not.</h2>
+            <p>
+              TieOut follows the product path from imported statements to reviewed cross-account proposals to export,
+              and blocks output until the ledger is safe to import.
+            </p>
+          </div>
+
+          <div class="workflow">
+            <article class="workflow-card">
+              <div class="workflow-copy">
+                <span class="step">01</span>
+                <h3>Public converter</h3>
+                <ul>
+                  <li>Single-statement CSV conversion is the entry point.</li>
+                  <li>The product immediately points users toward whole-client cleanup.</li>
+                  <li>No-account conversion sits in front of the authenticated workspace.</li>
+                </ul>
+              </div>
+              <div class="workflow-shot">
+                <img src="assets/screenshots/02-public-converter.png" alt="TieOut public converter screen." />
+              </div>
+            </article>
+
+            <article class="workflow-card">
+              <div class="workflow-copy">
+                <span class="step">02</span>
+                <h3>Cleanup workspace</h3>
+                <ul>
+                  <li>Each cleanup wraps one client backlog and processing engagement.</li>
+                  <li>Status, assignment, notes, and activity are visible in one workspace.</li>
+                  <li>Tabs expose documents, coverage, review, source proof, books check, and export package.</li>
+                </ul>
+              </div>
+              <div class="workflow-shot">
+                <img src="assets/screenshots/04-overview-workflow.png" alt="TieOut cleanup workspace overview." />
+              </div>
+            </article>
+
+            <article class="workflow-card">
+              <div class="workflow-copy">
+                <span class="step">03</span>
+                <h3>Review queue</h3>
+                <ul>
+                  <li>Duplicate rows, unmatched transfers, and payout issues block export.</li>
+                  <li>Processor payout matching is part of the cleanup workflow.</li>
+                  <li>Each proposed action is reviewable and reversible before export.</li>
+                </ul>
+              </div>
+              <div class="workflow-shot">
+                <img src="assets/screenshots/05-review-queue.png" alt="TieOut review queue." />
+              </div>
+            </article>
+
+            <article class="workflow-card">
+              <div class="workflow-copy">
+                <span class="step">04</span>
+                <h3>Source proof</h3>
+                <ul>
+                  <li>Extracted rows link back to the exact statement page.</li>
+                  <li>Source evidence is visible beside the canonical row output.</li>
+                  <li>Repair flows preserve the original statement while editing exported rows.</li>
+                </ul>
+              </div>
+              <div class="workflow-shot">
+                <img src="assets/screenshots/07-source-proof-modal.png" alt="TieOut source proof modal." />
+              </div>
+            </article>
+
+            <article class="workflow-card">
+              <div class="workflow-copy">
+                <span class="step">05</span>
+                <h3>Coverage gate</h3>
+                <ul>
+                  <li>Coverage is checked per account and period before package generation.</li>
+                  <li>Missing, duplicate, unavailable, and needs-review states are explicit.</li>
+                  <li>A cleanup cannot pretend a statement period exists when it does not.</li>
+                </ul>
+              </div>
+              <div class="workflow-shot">
+                <img src="assets/screenshots/08-coverage-gate.png" alt="TieOut coverage gate." />
+              </div>
+            </article>
+
+            <article class="workflow-card">
+              <div class="workflow-copy">
+                <span class="step">06</span>
+                <h3>Books check</h3>
+                <ul>
+                  <li>Imported rows are compared against existing books.</li>
+                  <li>Already-booked rows are excluded so import does not double count activity.</li>
+                  <li>Mismatches between statement rows and books are surfaced before export.</li>
+                </ul>
+              </div>
+              <div class="workflow-shot">
+                <img src="assets/screenshots/09-books-check.png" alt="TieOut books check." />
+              </div>
+            </article>
+
+            <article class="workflow-card">
+              <div class="workflow-copy">
+                <span class="step">07</span>
+                <h3>Export package</h3>
+                <ul>
+                  <li>Package generation waits for every blocker to resolve.</li>
+                  <li>Outputs include QuickBooks import CSV, Excel workbooks, review CSV, PDF report, source index, and metadata.</li>
+                  <li>The export package is client-ready and audit-backed.</li>
+                </ul>
+              </div>
+              <div class="workflow-shot">
+                <img src="assets/screenshots/10-export-package.png" alt="TieOut export package screen." />
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="specs" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">Technical specs</p>
+            <h2>Two engines, one export gate, no silent accounting magic.</h2>
+            <p>
+              The system separates per-document extraction from per-engagement reconciliation. That separation makes
+              failures easier to reason about, test, and explain to a reviewer.
+            </p>
+          </div>
+
+          <div class="spec-grid">
+            <article class="spec-card">
+              <h3>Statement Engine</h3>
+              <code class="contract">extractStatement(input) -&gt; StatementObject</code>
+              <p>
+                Per-document, stateless extraction that lands every bank or card statement on one typed object with
+                account fields, summary totals, rows, source references, confidence, and tie-out status.
+              </p>
+            </article>
+            <article class="spec-card">
+              <h3>Adapter</h3>
+              <code class="contract">fromStatementObject(so, ctx) -&gt; CanonicalTxn[]</code>
+              <p>
+                Decouples extraction from reconciliation, maps row-level flow semantics, stamps globally unique
+                transaction IDs, and preserves source provenance for review.
+              </p>
+            </article>
+            <article class="spec-card">
+              <h3>Ledger Engine</h3>
+              <code class="contract">reconcileEngagement(id, statements, opts) -&gt; Engagement</code>
+              <p>
+                Builds the engagement graph, runs deterministic passes for transfer matching, carry-forward continuity,
+                deduplication, feed seams, and processor payouts.
+              </p>
+            </article>
+            <article class="spec-card">
+              <h3>Gated Export</h3>
+              <code class="contract">buildExport(engagement) -&gt; QuickBooks CSV | blockers</code>
+              <p>
+                Exports only when no review-required exception remains and no match is still proposed. The system
+                prefers blocked output over quiet accounting errors.
+              </p>
+            </article>
+          </div>
+
+          <div class="technical-row">
+            <section class="matchers">
+              <h3>Matcher algorithms</h3>
+              <div class="matcher-row">
+                <strong>Transfer pass</strong>
+                <p>Equal amount within epsilon 0.005, date window up to 5 days, compatible flow roles, one-to-one greedy assignment by score.</p>
+              </div>
+              <div class="matcher-row">
+                <strong>Carry-forward pass</strong>
+                <p>Validates closing[m] == opening[m+1], flags coverage gaps and overlapping periods before export.</p>
+              </div>
+              <div class="matcher-row">
+                <strong>Dedup pass</strong>
+                <p>Groups by account, date, absolute amount, and normalized description; proposes dropping extras, never mutates silently.</p>
+              </div>
+              <div class="matcher-row">
+                <strong>Processor pass</strong>
+                <p>Collapses processor payout report plus matching bank deposit into one settlement row to prevent double-counted revenue.</p>
+              </div>
+            </section>
+
+            <section class="pipeline">
+              <h3>Pipeline contract</h3>
+              <pre>PDFs / markdown
+  -&gt; Statement Engine
+  -&gt; StatementObject[]
+  -&gt; CanonicalTxn[]
+  -&gt; Ledger Engine
+  -&gt; Engagement { matches, exceptions, exportReady }
+  -&gt; gated QuickBooks CSV</pre>
+              <p>
+                The key design choice is that matches are proposals, not hidden mutations. The UI and CSV exporter share
+                the same readiness check.
+              </p>
+            </section>
+          </div>
+
+          <div id="docs" class="docs-links" aria-label="Technical documents">
+            <a href="docs/PRODUCT.md">Product description</a>
+            <a href="docs/ENGINE_SPEC.md">Engine spec</a>
+            <a href="docs/DATA_MODEL.md">Data model</a>
+            <a href="docs/RECONCILIATION.md">Reconciliation</a>
+            <a href="results/LEDGER_SCORECARD.md">Ledger scorecard</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft">
+        <div class="wrap split">
+          <div class="section-head">
+            <p class="eyebrow">Evidence</p>
+            <h2>The system is backed by measured engineering signals.</h2>
+            <p>
+              The important signal is not just that the app runs. It is that the domain risks are named, modeled,
+              tested, and kept out of export until they are resolved.
+            </p>
+          </div>
+          <div class="signal-grid">
+            <article class="signal-card"><p>TypeScript pnpm monorepo with separate web, API, engine, statement-engine, shared, and worker packages.</p></article>
+            <article class="signal-card"><p>Deterministic-first financial logic where arithmetic decides and LLM/OCR lanes are bounded by confidence and review states.</p></article>
+            <article class="signal-card"><p>Explicit data contracts: StatementObject, CanonicalTxn, Match, LedgerException, Engagement, and export rows.</p></article>
+            <article class="signal-card"><p>Eval-driven quality story: hard gates, scorecards, seeded synthetic corpus, real-substrate distractors, and active-learning decision logs.</p></article>
+            <article class="signal-card"><p>Product UX tied to engine constraints: source proof, proposal review, export blocking, and import-safe QuickBooks output.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">Actual product surface</p>
+            <h2>The surrounding workflow is productized too.</h2>
+            <p>
+              The real product is more than one reconciliation table. It includes client cleanup tracking, source-backed
+              row repair, billing, and a support loop for statement formats that need coverage.
+            </p>
+          </div>
+          <div class="surface-grid">
+            <article class="surface-card">
+              <img src="assets/screenshots/03-cleanups-list.png" alt="TieOut cleanups list." />
+              <div><h3>Cleanup list</h3><p>Client backlogs are tracked as cleanup workspaces with period scope, assignment, status, and plan limits.</p></div>
+            </article>
+            <article class="surface-card">
+              <img src="assets/screenshots/06-source-proof.png" alt="TieOut source proof table." />
+              <div><h3>Source proof table</h3><p>Statement rows stay source-backed, editable, and visible before anything is allowed into an export package.</p></div>
+            </article>
+            <article class="surface-card">
+              <img src="assets/screenshots/11-billing.png" alt="TieOut billing screen." />
+              <div><h3>Billing</h3><p>The commercial surface is page-metered and tied to cleanup limits, export packaging, and team workflow.</p></div>
+            </article>
+            <article class="surface-card">
+              <img src="assets/screenshots/12-bank-support.png" alt="TieOut bank support screen." />
+              <div><h3>Bank support</h3><p>Unsupported statement layouts become support requests and fixture-building opportunities instead of silent failures.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap bottom-grid">
+          <section class="boundary">
+            <p class="eyebrow">Honest boundaries</p>
+            <h2>Clear product boundaries.</h2>
+            <ul>
+              <li>Current local store uses an in-memory engagement seam; persistence is isolated behind the EngagementStore contract.</li>
+              <li>PDF import abstains when the extraction lane is not wired rather than guessing and exporting bad numbers.</li>
+              <li>Autonomous reconciliation is not claimed; confirmations are human-owned until production partner data earns higher trust.</li>
+            </ul>
+          </section>
+
+          <section class="github-card">
+            <p class="eyebrow">Public GitHub presence</p>
+            <h2>Public specs, private implementation.</h2>
+            <p>
+              This repository is the public product and technical specification for TieOut. The production app lives at
+              tieoutapp.com, and the private implementation repository remains separate.
+            </p>
+            <a class="dark-button" href="https://tieoutapp.com">Open TieOut app</a>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
